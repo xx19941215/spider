@@ -8,7 +8,11 @@ $url = "http://school.aoshu.com/school/249753/";
 $html = requests::get($url);
 
 // 选择器规则
-$selector = "//div[contains(@class,'address')]/span[2]";
+$name = "//article[contains(@class,'schoolintro')]/h2/a[1]";
+$tel = "//dl//tr[4]/td[2]";
+$addr = "//dl//tr[5]/td[2]";
 // 提取结果
-$result = selector::select($html, $selector);
-echo $result . 'ok';
+//$name = selector::select($html, $name);
+$tel = selector::select($html, $tel);
+$addr = selector::select($html, $addr);
+echo '电话：' . $tel . " 地址" . $addr;
